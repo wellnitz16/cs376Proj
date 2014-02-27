@@ -137,6 +137,9 @@ void convert(char **a) {
 void reverseChars(char **a){
   int i,j,count=0;
   char tempChar;
+  if(a[0][2]=='\0'){
+    return;
+  }
   for (i=0;a[i]!=NULL;i++){
     for(j=0;a[i][j]!='\0';j++){
       count++;

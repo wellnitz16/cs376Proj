@@ -137,21 +137,20 @@ void convert(char **a) {
 void reverseChars(char **a){
   int i,j,count=0;
   char tempChar;
-  if(a[0][2]=='\0'){
+  if(a[0][1]=='\0'){
     return;
   }
-  for (i=0;a[i]!=NULL;i++){
-    for(j=0;a[i][j]!='\0';j++){
-      count++;
-    }
-  }
-  count--;
   for(i=0;a[i]!=NULL;i++){
+    for(j=0;a[i][j]!='\0';j++){
+        count++;
+    }
+    count--;
     for(j=0;j<count;j++,count--){
       tempChar = a[i][count];
       a[i][count]=a[i][j];
       a[i][j]=tempChar;      
     }
+    count=0;
   }
 }
 // our array that tells how command-strings map to functions

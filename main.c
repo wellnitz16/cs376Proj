@@ -5,6 +5,7 @@
 #include "readLine.h"
 #include "execCmds.h"
 
+
 // print the elements in the array, up to (but not including) the first
 // NULL entry
 void printLines(char** a) {
@@ -14,9 +15,45 @@ void printLines(char** a) {
   }
 }
 
+//encrypt each line with algorithm; printable chars, 33 thru 126 are rotated
+void encryptLines(char** a){
+  int i,p;
+  for (i = 0; a[i] != NULL; i++)
+    {
+      for (p = 0; a[i][p] != '\0'; p++){
+	if (a[i][p] == 126){
+	  a[i][p] = 33;
+	}
+	else {
+	  a[i][p] = a[i][p] + 1; 
+	}
+      }
+     }
+}
+
+//decrypt each line from encryptLines algorithm
+void decryptLines(char** a){
+  int i,p;
+  for (i = 0; a[i] != NULL; i++){
+    for (p = 0; a[i][p] != '\0'; p++){
+      if (a[i][p] == 32){
+	a[i][p] = 126; 
+      }
+      else {
+	a[i][p] = a[i][p] -1; 
+      }
+    }
+  }
+
+}
+
+
+
 // our array that tells how command-strings map to functions
 commandMap map[] = {
   {"-p", printLines},
+  {"-e", encryptLines},
+  {"-d", decryptLines},
   {NULL, NULL},
 };
 

@@ -13,6 +13,7 @@ void printLines(char** a) {
     printf("%s\n", a[i]);
   }
 }
+//<<<<<<< HEAD
 
 void reverse(char** a)
 {
@@ -41,6 +42,38 @@ for (i = 0; a[i] != NULL; i++) {
 commandMap map[] = {
   {"-p", printLines},
   {"-r", reverse},
+  //=======
+void convert(char **a) {
+  int i,j;
+  for (i=0;a[i]!=NULL;i++){
+    for(j=0;a[i][j]!='\0';j++){
+      if(isalpha(a[i][j])&&islower(a[i][j])){
+        a[i][j]-=32;
+      }
+    }
+  }
+}
+void reverseChars(char **a){
+  int i,j,count=0;
+  char tempChar;
+  for (i=0;a[i]!=NULL;i++){
+    for(j=0;a[i][j]!='\0';j++){
+      count++;
+    }
+  }
+  count--;
+  for(i=0;a[i]!=NULL;i++){
+    for(j=0;j<count;j++,count--){
+      tempChar = a[i][count];
+      a[i][count]=a[i][j];
+      a[i][j]=tempChar;      
+    }
+  }
+}
+// our array that tells how command-strings map to functions
+commandMap map[] = {
+  {"-p", printLines},{"-u",convert},{"-rr",reverseChars},
+  //>>>>>>> eaf0cbd2c2b2039b2d03b33185e1d3ff5d909bc5
   {NULL, NULL},
 };
 

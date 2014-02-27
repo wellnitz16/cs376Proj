@@ -14,9 +14,33 @@ void printLines(char** a) {
   }
 }
 
+void reverse(char** a)
+{
+  int i;
+  int k = 0;
+  char* temp;
+  //char* temp2;
+for (i = 0; a[i] != NULL; i++) {
+  k++;
+  }
+
+ for(i = 0, k--;i<k ;i++,k--)
+  {
+    
+      temp = a[k];
+      a[k] = a[i];
+      a[i] = temp;
+
+    
+    
+   
+  }
+}
+
 // our array that tells how command-strings map to functions
 commandMap map[] = {
   {"-p", printLines},
+  {"-r", reverse},
   {NULL, NULL},
 };
 

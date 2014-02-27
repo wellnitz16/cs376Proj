@@ -62,9 +62,9 @@ void sort(char ** a) // The worst function you'll ever see.
 }
 
 // our array that tells how command-strings map to functions
-commandMap map[] = {
-  {"-p", printLines},
-  {"-s", sort},
+//commandMap map[] = {
+//  {"-p", printLines},
+//  {"-s", sort},
 //=======
 void reverse(char** a)
 {
@@ -123,15 +123,7 @@ void decryptLines(char** a){
 
 
 
-// our array that tells how command-strings map to functions
-commandMap map[] = {
-  {"-p", printLines},
-//<<<<<<< HEAD
-  {"-e", encryptLines},
-  {"-d", decryptLines},
-//=======
-  {"-r", reverse},
-  //=======
+// our array that tells how command-strings map t
 void convert(char **a) {
   int i,j;
   for (i=0;a[i]!=NULL;i++){
@@ -161,7 +153,7 @@ void reverseChars(char **a){
 }
 // our array that tells how command-strings map to functions
 commandMap map[] = {
-  {"-p", printLines},{"-u",convert},{"-rr",reverseChars},
+  {"-p", printLines},{"-u",convert},{"-rr",reverseChars},{"-e", encryptLines},{"-d",decryptLines},{"-r",reverse},{"-s",sort},
   //>>>>>>> eaf0cbd2c2b2039b2d03b33185e1d3ff5d909bc5
   //>>>>>>> 8c41f8c42ed8db89c60ddb7c8523cba0b2284f68
 //>>>>>>> c9f6c550bf6f1b6c0d3fa83239c5bd40c10807cd
